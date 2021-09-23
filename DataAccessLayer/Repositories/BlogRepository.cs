@@ -43,5 +43,30 @@ namespace DataAccessLayer.Repositories
             sqlContext.Update(blog);
             sqlContext.SaveChanges();
         }
+
+        public void Delete(Blog parametre)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Blog GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Blog> GetListAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Insert(Blog parametre)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Blog parametre)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

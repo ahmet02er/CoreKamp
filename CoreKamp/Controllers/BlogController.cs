@@ -13,7 +13,13 @@ namespace CoreKamp.Controllers
         BlogManager blogManager = new BlogManager(new EfBlogRepository());
         public IActionResult Index()
         {
-            var blogValue = blogManager.GetList();
+            var blogValue = blogManager.GetListWithCategory();
+            return View(blogValue);
+        }
+
+        public IActionResult BlogReadAll(int id)
+        {
+            var blogValue = blogManager.GetBlogById(id);
             return View(blogValue);
         }
     }

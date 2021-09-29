@@ -19,6 +19,7 @@ namespace CoreKamp.Controllers
 
         public IActionResult BlogReadAll(int id)
         {
+            ViewBag.id = id;
             var blogValue = blogManager.GetBlogById(id);
             return View(blogValue);
         }

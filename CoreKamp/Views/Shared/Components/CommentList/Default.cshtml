@@ -1,0 +1,7 @@
+﻿@model IEnumerable<CoreKamp.Models.CommentUser>
+
+@foreach (var item in Model)
+{
+    <p>@item.Id</p>
+    <p>@item.UserName</p>
+}

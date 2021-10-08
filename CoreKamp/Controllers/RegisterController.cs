@@ -41,6 +41,7 @@ namespace CoreKamp.Controllers
                     ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
                 }
             }
+
             return View();
         }
     }

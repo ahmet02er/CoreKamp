@@ -4,6 +4,7 @@ using CoreKamp.Models;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
@@ -13,6 +14,7 @@ using System.Threading.Tasks;
 
 namespace CoreKamp.Controllers
 {
+    [AllowAnonymous]
     public class RegisterController : Controller
     {
         WriterManager writerManager = new WriterManager(new EfWriterRepository());

@@ -14,6 +14,7 @@
                 @using (Html.BeginForm("Index", "Register", FormMethod.Post))
                 {
                     <div class="form-row">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom01">Ad Soyad</label>
                             @Html.TextAreaFor(x => x.WriterName, new { @class = "form-control", placeholder = "Ad Soyad" })
@@ -35,6 +36,12 @@
                             @*<input type="password" class="form-control" name="WriterPassword" id="password1" placeholder="" required="">*@
                         </div>
                         <div class="form-group col-md-6">
+                            <label for="exampleInputPassword1 mb-2">Şifre Tekrar</label>
+                            @Html.TextAreaFor(x => x.WriterPasswordConfirm, new { @class = "form-control", placeholder = "Şifre Tekrar" })
+                            @Html.ValidationMessageFor(x => x.WriterPasswordConfirm, "", new { @class = "text-danger" })
+                            @*<input type="password" class="form-control" name="WriterPassword" id="password1" placeholder="" required="">*@
+                        </div>
+                        <div class="form-group col-md-6">
                             <label for="exampleInputPassword2 mb-2">Görsel Yolu</label>
                             @Html.TextAreaFor(x => x.WriterImage, new { @class = "form-control" })
                             @Html.ValidationMessageFor(x => x.WriterImage, "", new { @class = "text-danger" })
@@ -42,13 +49,15 @@
                         </div>
 
                     </div>
-
+                    @await Component.InvokeAsync("CityList")
+                    <br /><br />
                     <button type="submit" class="btn btn-primary submit mb-4">Kayıt Ol</button>
                     <p>
                         <a href="#" id="btn">Tüm şartları okudum, kabul ediyorum.</a>
                     </p>
 
                 }
+
             </div>
         </div>
     </div>

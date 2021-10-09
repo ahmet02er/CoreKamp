@@ -1,0 +1,4 @@
+﻿@model IEnumerable<CoreKamp.Models.CityModel>
+
+<h3>İl Listesi</h3>
+@Html.DropDownList("İller", new SelectList(ViewBag.City, "cityId", "cityName"), "İl Seçiniz", new { @class = "form-control" })

@@ -21,7 +21,7 @@ namespace BusinessLayer.ValidationRules.FluentValidation
             RuleFor(x => x.WriterName).MaximumLength(50).WithMessage("Lütfen en fazla 50 karekterlik bir ad Soyad giriniz...");
             RuleFor(x => x.WriterMail).EmailAddress().WithMessage("Lütfen geçerli bir e-mail giriniz...");
             RuleFor(x => x.WriterPassword).MinimumLength(6).WithMessage("Parola en az 6 karakter olmalıdır...");
-            RuleFor(x => x.WriterPassword).Must(IsPasswordValid).WithMessage("Parolanızda en az bir küçük harf bir büyük harf ve rakam olmalıdır...");
+            RuleFor(x => x.WriterPassword).Must(IsPasswordValid).WithMessage("Parolanızda en az bir büyük harf, en az bir küçük harf ve rakam olmalıdır...");
         }
         private bool IsPasswordValid(string arg)
         {

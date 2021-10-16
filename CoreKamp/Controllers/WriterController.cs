@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace CoreKamp.Controllers
 {
+   
     public class WriterController : Controller
     {
         public IActionResult Index()

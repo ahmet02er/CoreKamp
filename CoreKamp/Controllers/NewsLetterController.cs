@@ -11,7 +11,7 @@ namespace CoreKamp.Controllers
 {
     public class NewsLetterController : Controller
     {
-        NewsLetterManager newsLetterManager = new NewsLetterManager(new EfNewsLetterRepository()); 
+        NewsLetterManager newsLetterManager = new NewsLetterManager(new EfNewsLetterRepository());
 
         [HttpGet]
         public PartialViewResult SubscribeMail()
@@ -21,9 +21,10 @@ namespace CoreKamp.Controllers
         [HttpPost]
         public PartialViewResult SubscribeMail(NewsLetter newsLetter)
         {
-            newsLetter.MailStatus = true; 
+            newsLetter.MailStatus = true;
             newsLetterManager.NewsLetterAdd(newsLetter);
             return PartialView();
         }
+
     }
 }

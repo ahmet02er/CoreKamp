@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace CoreKamp.Controllers
 {
+    
     public class BlogController : Controller
     {
         BlogManager blogManager = new BlogManager(new EfBlogRepository());

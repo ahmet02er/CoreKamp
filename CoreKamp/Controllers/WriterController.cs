@@ -18,5 +18,25 @@ namespace CoreKamp.Controllers
         {
             return View();
         }
+        public IActionResult WriterMail()
+        {
+            return View();
+        }
+
+        [AllowAnonymous]
+        public IActionResult WriterTest()
+        {
+            return View();
+        }
+        [AllowAnonymous]
+        public PartialViewResult WriterNavbarPartial()
+        {
+            return PartialView();
+        }
+        [AllowAnonymous]
+        public PartialViewResult WriterFooterPartial()
+        {
+            return PartialView();
+        }
     }
 }

@@ -13,7 +13,7 @@ namespace CoreKamp.Controllers
         AboutManager aboutManager = new AboutManager(new EfAboutRepository());
         public IActionResult Index()
         {
-            var aboutValue = aboutManager.GetList();
+            var aboutValue = aboutManager.GenericGetList();
             return View(aboutValue);
         }
         public PartialViewResult SocialMediaAbout()

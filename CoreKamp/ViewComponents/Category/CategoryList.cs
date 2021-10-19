@@ -13,7 +13,7 @@ namespace CoreKamp.ViewComponents.Category
         CategoryManager categoryManager = new CategoryManager(new EfCategoryRepository());
         public IViewComponentResult Invoke()
         {
-            var categoryValue = categoryManager.GetList();
+            var categoryValue = categoryManager.GenericGetList();
             return View(categoryValue);
         }
     }

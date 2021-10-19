@@ -18,31 +18,11 @@ namespace BusinessLayer.Concrete
             _blogDal = blogDal;
         }
 
-        public void BlogAdd(Blog blog)
-        {
-            throw new NotImplementedException();
-        }
 
-        public void BlogDelete(Blog blog)
+        public List<Blog> GetLast3Blog()
         {
-            throw new NotImplementedException();
+            return _blogDal.GetListAll().Take(3).ToList();
         }
-
-        public void BlogUpdate(Blog blog)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Blog GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Blog> GetList()
-        {
-            return _blogDal.GetListAll();
-        }
-
         public List<Blog>GetBlogById(int id)
         {
             return _blogDal.GetListAll(x => x.BlogId == id);
@@ -55,6 +35,31 @@ namespace BusinessLayer.Concrete
         public List<Blog> GetListWithByWriter(int id)
         {
             return _blogDal.GetListAll(x => x.WriterId == id);
+        }
+
+        public void GenericAdd(Blog parametre)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void GenericDelete(Blog parametre)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void GenericUpdate(Blog parametre)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Blog> GenericGetList()
+        {
+             return _blogDal.GetListAll();
+        }
+
+        public Blog GenericGetById(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

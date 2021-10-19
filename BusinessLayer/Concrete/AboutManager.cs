@@ -18,9 +18,29 @@ namespace BusinessLayer.Concrete
             _aboutDal = aboutDal;
         }
 
-        public List<About> GetList()
+        public void GenericAdd(About parametre)
         {
-          return  _aboutDal.GetListAll();
+            throw new NotImplementedException();
+        }
+
+        public void GenericDelete(About parametre)
+        {
+            throw new NotImplementedException();
+        }
+
+        public About GenericGetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<About> GenericGetList()
+        {
+            return _aboutDal.GetListAll();
+        }
+
+        public void GenericUpdate(About parametre)
+        {
+            throw new NotImplementedException();
         }
     }
 }

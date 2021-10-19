@@ -2,4 +2,10 @@
 ## Youtube Eğitim Linki : https://www.youtube.com/watch?v=HXKnDUb06iw&list=PLKnjBHu2xXNNkinaVhPqPZG0ubaLN63ci
 ## Eğitmen : Murat YÜCEDAĞ https://www.youtube.com/channel/UCbkbOlw8snP93RJ2BhH44Qw
 
-1-Sertifika Görev 1 Asp.Net Core 5.0 Proje Kampı Category Manager Sınıfında Revizeler  :+1
+- Görev 1 = Ders 20 - Projenin GitHuba yüklenmesi
+- Ödev 1 = Ders 32 - Yüklenen Blokta herhangi bir yorum yok ise "Bu Blogta henüz yorum yapılmadı. İlk yorumu siz yazın."
+- Ödev 2 = Ders 33 - Kayıt Olurken Parola Tekrar Alanı
+- Ödev 3 = Ders 34 - Yazar Kayıt Sayfasında ViewModel Göre DropDown Şehir Listesi
+- Ödev 4 = Ders 35 - Kayıt Ekranında Parolada En Az 1 Büyük Harf, En Az 1 Küçük Harf ve En Az 1 Sayı Olaması Gerekiyor.
+- ~~Ödev 5 = Ders 39 - Yorum ve Mail Bülteni Ekleme Sorununun Çözülmesi (Yapılamadı)~~
+- Görev 2 = Ders 40 - GitHub Reposunun Güncellenmesi

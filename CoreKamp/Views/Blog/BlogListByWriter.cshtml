@@ -1,0 +1,83 @@
+﻿@using EntityLayer.Concrete
+@model List<Blog>
+@{
+    ViewData["Title"] = "BlogListByWriter";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+@{ string color = "";}
+<h1>Yazarın Blogları</h1>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Blog Başlığı</th>
+            <th>Oluşturma Tarihi</th>
+            <th>Kategori</th>
+            <th>Durumu</th>
+            <th>Güncelle</th>
+            <th>Sil</th>
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            if (item.Category.CategoryName == "Eğitim")
+            {
+                color = "badge badge-success";
+            }
+            if (item.Category.CategoryName == "Tiyatro")
+            {
+                color = "badge badge-secondary";
+            }
+            if (item.Category.CategoryName == "Kitap")
+            {
+                color = "badge badge-info";
+            }
+            if (item.Category.CategoryName == "Oyun")
+            {
+                color = "badge badge-danger";
+            }
+            if (item.Category.CategoryName == "Film")
+            {
+                color = "badge badge-warning";
+            }
+            if (item.Category.CategoryName == "Dizi")
+            {
+                color = "badge badge-dark";
+            }
+            if (item.Category.CategoryName == "Teknoloji")
+            {
+                color = "badge badge-primary";
+            }
+            if (item.Category.CategoryName == "Sinema")
+            {
+                color = "badge badge-danger";
+            }
+            if (item.Category.CategoryName == "Yazılım")
+            {
+                color = "badge badge-info";
+            }
+            <tr>
+                <th>@item.BlogId</th>
+                <td>@item.BlogTitle</td>
+                <td>@(((DateTime)item.BlogCreateDate).ToString("dd MMMM yyyy"))</td>
+                <td><span class="@color" >@item.Category.CategoryName</span></td>
+                <td>
+                    @if (@item.BlogStatus == true)
+                    {
+                        <span class="badge badge-success">Aktif</span>
+                    }
+                    else
+                    {
+                        <span class="badge badge-danger">Pasif</span>
+                    }
+                </td>
+                <td><a href="#" class="btn btn-danger">Sil</a></td>
+                <td><a href="#" class="btn btn-success">Güncelle</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="#" class="btn btn-primary">Yeni Blog Ekle</a>

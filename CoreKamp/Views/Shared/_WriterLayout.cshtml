@@ -10,19 +10,22 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Purple Admin</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 
     <link href="~/writerPanel/assets/vendors/mdi/css/materialdesignicons.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/writerPanel/assets/vendors/css/vendor.bundle.base.css">
     <link rel="stylesheet" href="~/writerPanel/assets/css/style.css">
     <link rel="shortcut icon" href="~/writerPanel/assets/images/favicon.ico" />
+    <link href="~/summernote/summernote.min.css" rel="stylesheet" />
+    <link href="~/summernote/summernote-bs4.min.css" rel="stylesheet" />
 
 </head>
 <body>
     <div class="container-scroller">
         <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo" href="../../index.html"><img src="~/writerPanel/assets/images/logo.svg" alt="logo" /></a>
-                <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="~/writerPanel/assets/images/logo-mini.svg" alt="logo" /></a>
+                <a class="navbar-brand brand-logo" href="../../index.html"><img src="~/writerPanel/assets/images/ahmetlogo0.png" alt="logo" /></a>
+                <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="~/writerPanel/assets/images/ahmetlogo0.png" alt="logo" /></a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-stretch">
                 <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -42,7 +45,7 @@
                     <li class="nav-item nav-profile dropdown">
                         <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                             <div class="nav-profile-img">
-                                <img src="~/writerPanel/assets/images/faces/face1.jpg" alt="image">
+                                <img src="~/writerPanel/assets/images/ahmetlogo.png" alt="image">
                                 <span class="availability-status online"></span>
                             </div>
                             <div class="nav-profile-text">
@@ -109,5 +112,18 @@
     <script src="~/writerPanel/assets/js/off-canvas.js"></script>
     <script src="~/writerPanel/assets/js/hoverable-collapse.js"></script>
     <script src="~/writerPanel/assets/js/misc.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/summernote/summernote.min.js"></script>
+    <script src="~/summernote/summernote-bs4.min.js"></script>
+    <script src="~/summernote/lang/summernote-tr-TR.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#summernote').summernote({
+                height: 200,
+                lang: 'tr-TR' // default: 'en-US'
+            });
+        });
+    </script>
 </body>
 </html>

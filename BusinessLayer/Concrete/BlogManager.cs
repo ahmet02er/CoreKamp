@@ -39,7 +39,7 @@ namespace BusinessLayer.Concrete
 
         public void GenericAdd(Blog parametre)
         {
-            throw new NotImplementedException();
+            _blogDal.Insert(parametre);
         }
 
         public void GenericDelete(Blog parametre)
@@ -60,6 +60,11 @@ namespace BusinessLayer.Concrete
         public Blog GenericGetById(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public List<Blog> GetListCategoryByWriter(int id)
+        {
+            return _blogDal.GetListWithCategoryByWriter(id);
         }
     }
 }

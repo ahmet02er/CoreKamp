@@ -18,6 +18,7 @@ namespace CoreKamp.Controllers
     public class RegisterController : Controller
     {
         WriterManager writerManager = new WriterManager(new EfWriterRepository());
+        WriterValidator validationRules = new WriterValidator();
 
         [HttpGet]
         public IActionResult Index()
@@ -28,7 +29,7 @@ namespace CoreKamp.Controllers
         [HttpPost]
         public IActionResult Index(Writer writer)
         {
-            WriterValidator validationRules = new WriterValidator();
+            
             ValidationResult validationResult = validationRules.Validate(writer);
             if(validationResult.IsValid)
             {

@@ -74,10 +74,15 @@
                         <span class="badge badge-danger">Pasif</span>
                     }
                 </td>
-                <td><a href="#" class="btn btn-danger">Sil</a></td>
-                <td><a href="#" class="btn btn-success">Güncelle</a></td>
+                <td><a href="/Blog/DeleteBlog/@item.BlogId" class="btn btn-danger">Sil</a></td>
+                <td><a href="/Blog/UpdateBlog/@item.BlogId" class="btn btn-success">Güncelle</a></td>
             </tr>
         }
     </tbody>
 </table>
-<a href="#" class="btn btn-primary">Yeni Blog Ekle</a>
+<a href="/Blog/BlogAdd" class="btn btn-primary">Yeni Blog Ekle</a>
+<script>
+        $('#btn').click(function () {
+            swal("Silmek İstediğinizden eminmisiniz.");
+        });
+</script>

@@ -14,6 +14,10 @@ namespace CoreKamp.Controllers
         {
             return View();
         }
+        public IActionResult TodoList()
+        {
+            return View();
+        }
         public IActionResult WriterProfile()
         {
             return View();

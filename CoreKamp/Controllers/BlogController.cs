@@ -40,6 +40,7 @@ namespace CoreKamp.Controllers
         [HttpGet]
         public IActionResult BlogAdd()
         {
+
             List<SelectListItem> categoryValue = (from x in categoryManager.GenericGetList()
                                                   select new SelectListItem
                                                   {
@@ -70,6 +71,39 @@ namespace CoreKamp.Controllers
                 }
             }
             return View();
+        }
+
+        public IActionResult DeleteBlog(int id)
+        {
+            var blogValue = blogManager.GenericGetById(id);
+            blogManager.GenericDelete(blogValue);
+            return RedirectToAction("BlogListByWriter");
+        }
+
+        [HttpGet]
+        public IActionResult UpdateBlog(int id)
+        {
+            var blogValue = blogManager.GenericGetById(id);
+
+            List<SelectListItem> categoryValue = (from x in categoryManager.GenericGetList()
+                                                  select new SelectListItem
+                                                  {
+                                                      Text = x.CategoryName,
+                                                      Value = x.CategoryId.ToString()
+                                                  }).ToList();
+            ViewBag.category = categoryValue;
+
+            return View(blogValue);
+        }
+
+        [HttpPost]
+        public IActionResult UpdateBlog(Blog blog)
+        {
+            blog.WriterId = 1;
+            blog.BlogCreateDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+            blog.BlogStatus = true;
+            blogManager.GenericUpdate(blog);
+            return RedirectToAction("BlogListByWriter");
         }
     }
 }

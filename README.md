@@ -9,3 +9,4 @@
 - Ödev 4 = Ders 35 - Kayıt Ekranında Parolada En Az 1 Büyük Harf, En Az 1 Küçük Harf ve En Az 1 Sayı Olaması Gerekiyor.
 - ~~Ödev 5 = Ders 39 - Yorum ve Mail Bülteni Ekleme Sorununun Çözülmesi (Yapılamadı)~~
 - Görev 2 = Ders 40 - GitHub Reposunun Güncellenmesi
+- Görev 3 = Ders 68 - Dashboard "Purple" logosu yerine kendi logomuzun eklenmesi.

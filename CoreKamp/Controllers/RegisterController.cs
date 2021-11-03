@@ -34,7 +34,7 @@ namespace CoreKamp.Controllers
             if(validationResult.IsValid)
             {
                 writer.WriterStatus = true;
-                writerManager.WriterAdd(writer);
+                writerManager.GenericAdd(writer);
                 return RedirectToAction("Index", "Blog");
             }
            else

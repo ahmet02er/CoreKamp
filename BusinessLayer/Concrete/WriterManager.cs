@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Concrete
 {
-   public class WriterManager:IWriterService
+    public class WriterManager : IWriterService
     {
         IWriterDal _writerDal;
 
@@ -30,7 +30,7 @@ namespace BusinessLayer.Concrete
 
         public Writer GenericGetById(int id)
         {
-            throw new NotImplementedException();
+            return _writerDal.GetById(id);
         }
 
         public List<Writer> GenericGetList()
@@ -40,7 +40,7 @@ namespace BusinessLayer.Concrete
 
         public void GenericUpdate(Writer parametre)
         {
-            throw new NotImplementedException();
+            _writerDal.Update(parametre);
         }
 
         public List<Writer> GetWriterById(int id)

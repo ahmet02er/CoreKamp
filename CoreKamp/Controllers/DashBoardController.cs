@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using BusinessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -12,6 +14,11 @@ namespace CoreKamp.Controllers
         [AllowAnonymous]
         public IActionResult Index()
         {
+            BlogManager blogManager = new BlogManager(new EfBlogRepository());
+            CategoryManager categoryManager = new CategoryManager(new EfCategoryRepository());
+            ViewBag.ToplamBlogSayisi = blogManager.GenericGetList().Count();
+            ViewBag.YazarBlogSayisi = blogManager.GetListWithByWriter(1).Count();
+            ViewBag.ToplamKategoriSayisi = categoryManager.GenericGetList().Count();
             return View();
         }
     }

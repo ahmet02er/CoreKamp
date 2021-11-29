@@ -35,9 +35,9 @@ namespace CoreKamp
 
             services.AddMvc();
             services.AddAuthentication(
-                CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(x=>
+                CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(x =>
                 {
-                    x.LoginPath= "/Login/Index";
+                    x.LoginPath = "/Login/Index";
                 }
                 );
 
@@ -77,8 +77,14 @@ namespace CoreKamp
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+           name: "areas",
+           pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+         );
+                endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                
             });
         }
     }

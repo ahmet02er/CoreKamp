@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using BusinessLayer.ValidationRules.FluentValidation;
+using DataAccessLayer.Concrete.Context;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
@@ -13,12 +14,12 @@ using System.Threading.Tasks;
 
 namespace CoreKamp.Controllers
 {
-    [AllowAnonymous]
     public class BlogController : Controller
     {
         BlogManager blogManager = new BlogManager(new EfBlogRepository());
         CategoryManager categoryManager = new CategoryManager(new EfCategoryRepository());
         BlogValidator validationRules = new BlogValidator();
+        MsSqlContext msSqlContext = new MsSqlContext();
         public IActionResult Index()
         {
             var blogValue = blogManager.GetListWithCategory();
@@ -34,7 +35,9 @@ namespace CoreKamp.Controllers
 
         public IActionResult BlogListByWriter()
         {
-            var writerValue = blogManager.GetListCategoryByWriter(1);
+            var usermail = User.Identity.Name;
+            var writerId = msSqlContext.Writers.Where(x => x.WriterMail == usermail).Select(y => y.WriterId).FirstOrDefault();
+            var writerValue = blogManager.GetListCategoryByWriter(writerId);
             return View(writerValue);
         }
         [HttpGet]
@@ -54,12 +57,15 @@ namespace CoreKamp.Controllers
         [HttpPost]
         public IActionResult BlogAdd(Blog blog)
         {
+            var usermail = User.Identity.Name;
+            var writerId = msSqlContext.Writers.Where(x => x.WriterMail == usermail).Select(y => y.WriterId).FirstOrDefault();
+
             ValidationResult validationResult = validationRules.Validate(blog);
             if (validationResult.IsValid)
             {
                 blog.BlogStatus = true;
                 blog.BlogCreateDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-                blog.WriterId = 1;
+                blog.WriterId = writerId;
                 blogManager.GenericAdd(blog);
                 return RedirectToAction("BlogListByWriter", "Blog");
             }
@@ -99,7 +105,9 @@ namespace CoreKamp.Controllers
         [HttpPost]
         public IActionResult UpdateBlog(Blog blog)
         {
-            blog.WriterId = 1;
+            var usermail = User.Identity.Name;
+            var writerId = msSqlContext.Writers.Where(x => x.WriterMail == usermail).Select(y => y.WriterId).FirstOrDefault();
+            blog.WriterId = writerId;
             blog.BlogCreateDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             blog.BlogStatus = true;
             blogManager.GenericUpdate(blog);

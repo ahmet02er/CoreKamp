@@ -36,7 +36,7 @@ namespace CoreKamp.Controllers
                 var userIdentity = new ClaimsIdentity(claims, "Admin");
                 ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(userIdentity);
                 await HttpContext.SignInAsync(claimsPrincipal);
-                return RedirectToAction("Index", "Writer");
+                return RedirectToAction("Index", "DashBoard");
             }
             else
             {

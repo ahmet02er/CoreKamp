@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.Concrete;
 using BusinessLayer.ValidationRules.FluentValidation;
 using CoreKamp.Models;
+using DataAccessLayer.Concrete.Context;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
@@ -17,10 +18,17 @@ namespace CoreKamp.Controllers
 
     public class WriterController : Controller
     {
+        
         WriterManager writerManager = new WriterManager(new EfWriterRepository());
         WriterValidator validationRules = new WriterValidator();
+        MsSqlContext msSqlContext = new MsSqlContext();
+        [Authorize]
         public IActionResult Index()
         {
+            var usermail = User.Identity.Name;
+            ViewBag.mail = usermail;
+            var writerName = msSqlContext.Writers.Where(x => x.WriterMail == usermail).Select(y => y.WriterName).FirstOrDefault();
+            ViewBag.name = writerName;
             return View();
         }
         public IActionResult TodoList()
@@ -51,14 +59,17 @@ namespace CoreKamp.Controllers
         {
             return PartialView();
         }
-        [AllowAnonymous]
+
         [HttpGet]
         public IActionResult WriterEditProfile()
         {
-            var writerValue = writerManager.GenericGetById(1);
+
+            var usermail = User.Identity.Name;
+            var writerId = msSqlContext.Writers.Where(x => x.WriterMail == usermail).Select(y => y.WriterId).FirstOrDefault();
+            var writerValue = writerManager.GenericGetById(writerId);
             return View(writerValue);
         }
-        [AllowAnonymous]
+ 
         [HttpPost]
         public IActionResult WriterEditProfile(Writer writer)
         {

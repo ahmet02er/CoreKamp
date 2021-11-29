@@ -1,0 +1,55 @@
+﻿@using EntityLayer.Concrete
+@model List<Notification>
+@{
+    ViewData["Title"] = "AllNotification";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+    string sure = "";
+    DateTime now = DateTime.Now;
+}
+
+<h1>Bildirimler</h1>
+<table class="table table-hover">
+    <tr>
+        <th>#</th>
+        <th>Bildirimler</th>
+        <th>Tarih</th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        TimeSpan zaman = now.Subtract(item.NotificationDate);
+
+        if (zaman.Days == 0)
+        {
+            if (zaman.Minutes == 0 && zaman.Hours == 0)
+            {
+                sure = "Şimdi";
+            }
+            else if (zaman.Minutes > 0 && zaman.Hours == 0)
+            {
+                sure = zaman.Minutes + " dakika önce";
+            }
+            else
+            {
+                sure = zaman.Hours + " saat " + zaman.Minutes + " dakika önce";
+            }
+        }
+        else
+        {
+            if (zaman.Hours == 0)
+            {
+                sure = zaman.Days + " gün önce";
+            }
+            else
+            {
+                sure = zaman.Days + " gün " + zaman.Hours + " saat önce";
+            }
+        }
+        <tr>
+            <td>@item.NotificationId</td>
+            <td>@item.NotificationDetails</td>
+            <td>@sure gönderildi. </td>
+        </tr>
+    }
+</table>
+

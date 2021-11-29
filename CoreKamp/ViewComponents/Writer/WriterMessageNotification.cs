@@ -10,11 +10,11 @@ namespace CoreKamp.ViewComponents.Writer
 {
     public class WriterMessageNotification : ViewComponent
     {
-        MessageManager messageManager = new MessageManager(new EfMessageRepository());
+        NewMessageManager newMessageManager = new NewMessageManager(new EfNewMessageRepository());
         public IViewComponentResult Invoke()
         {
-            string mail = "ahmet@ahmet.com";
-            var messageValue = messageManager.GetInboxListByWriter(mail);
+            int id = 1;
+            var messageValue = newMessageManager.GetInboxListByWriter(id);
             return View(messageValue);
         }
 

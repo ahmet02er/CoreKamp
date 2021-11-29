@@ -11,7 +11,6 @@ namespace CoreKamp.Controllers
 {
     public class DashBoardController : Controller
     {
-        [AllowAnonymous]
         public IActionResult Index()
         {
             BlogManager blogManager = new BlogManager(new EfBlogRepository());

@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete.Context;
 using DataAccessLayer.EntityFramework;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,10 +12,12 @@ namespace CoreKamp.ViewComponents.Writer
     public class WriterAboutOnDashboard:ViewComponent
     {
         WriterManager writerManager = new WriterManager(new EfWriterRepository());
-
+        MsSqlContext msSqlContext = new MsSqlContext();
         public IViewComponentResult Invoke()
         {
-            var writerValue = writerManager.GetWriterById(1);
+            var usermail = User.Identity.Name;
+            var writerId = msSqlContext.Writers.Where(x => x.WriterMail == usermail).Select(y => y.WriterId).FirstOrDefault();
+            var writerValue = writerManager.GetWriterById(writerId);
             return View(writerValue);
         }
 

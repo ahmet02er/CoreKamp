@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace CoreKamp.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class ChartController : Controller
     {
-        [Area("Admin")]
         public IActionResult Index()
         {
             return View();

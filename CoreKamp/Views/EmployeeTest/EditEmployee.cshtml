@@ -1,0 +1,18 @@
+﻿@model CoreKamp.Controllers.Class1
+@{
+    ViewData["Title"] = "EditEmployee";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Core API ile Personel Güncelleme Sayfası</h1>
+
+<form method="post">
+    <label>Id</label>
+    @Html.TextBoxFor(x => x.Id, new { @class = "form-control" })
+    <br />
+    <label>Ad Soyad</label>
+    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-outline-success">Güncelle</button>
+</form>
+

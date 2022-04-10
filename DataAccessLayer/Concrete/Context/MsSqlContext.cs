@@ -1,4 +1,5 @@
 ﻿using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Concrete.Context
 {
-    public class MsSqlContext : DbContext
+    public class MsSqlContext : IdentityDbContext<AppUser>
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=RIEN; Database=CoreKampDb; integrated security=True;");
+            optionsBuilder.UseSqlServer("server=localhost\\SQLEXPRESS; Database=CoreKampDb; integrated security=True;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -37,6 +38,8 @@ namespace DataAccessLayer.Concrete.Context
                 .WithMany(y => y.WriterReceiver)
                 .HasForeignKey(z => z.MessageReceiverId)
                 .OnDelete(DeleteBehavior.ClientSetNull);
+
+            base.OnModelCreating(modelBuilder);
 
         }
 

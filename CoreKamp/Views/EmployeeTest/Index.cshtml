@@ -1,0 +1,28 @@
+﻿@using CoreKamp.Controllers
+@model List<Class1>
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-hover">
+    <tr>
+        <th>#</th>
+        <th>Adı Soyadı</th>
+        <th>Düzenle</th>
+        <th>Sil</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td><a href="/EmployeeTest/EditEmployee/@item.Id" class="btn btn-outline-success" >Düzenle</a></td>
+            <td><a href="/EmployeeTest/DeleteEmployee/@item.Id" class="btn btn-outline-danger">Sil</a></td>
+        </tr>
+    }
+</table>
+<br />
+<a href="/EmployeeTest/AddEmployee/" class="btn btn-outline-primary">Yeni Çalışan Ekleme</a>

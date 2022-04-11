@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Concrete.Context
 {
-    public class MsSqlContext : IdentityDbContext<AppUser>
+    public class MsSqlContext : IdentityDbContext<AppUser, AppRole,int>
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

@@ -1,4 +1,4 @@
-﻿@model UserSingUpViewModel
+﻿@model UserSignUpViewModel
 
 @{
     Layout = null;
@@ -12,7 +12,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>INSPINIA | Register</title>
+    <title>AO Core 5.0 | Register</title>
 
     <link href="~/adminPanel/css/bootstrap.min.css" rel="stylesheet">
     <link href="~/adminPanel/font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -28,30 +28,48 @@
         <div>
             <div>
 
-                <h1 class="logo-name">IN+</h1>
+                <h3 class="logo-name">A.Ö.</h3>
 
             </div>
             <h3>KAYIT EKRANI</h3>
-            <p>Create account to see it in action.</p>
-            <form class="m-t" role="form" action="login.html">
+            <p>Yeni Hesap Oluşturma</p>
+            <form class="m-t" role="form" asp-action="Index">
+                <div class="text-danger" asp-validation-summary="ModelOnly"></div>
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Name" required="">
+                    <span asp-validation-for="@Model.NameSurname" class="text-danger"></span>
+                    <input type="text" asp-for="@Model.NameSurname" class="form-control" placeholder="Ad Soyad" required="">
                 </div>
                 <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Email" required="">
+                    <span asp-validation-for="@Model.Mail" class="text-danger"></span>
+                    <input type="email" asp-for="@Model.Mail" class="form-control" placeholder="Email" required="">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Password" required="">
+                    <span asp-validation-for="@Model.UserName" class="text-danger"></span>
+                    <input type="text" asp-for="@Model.UserName" class="form-control" placeholder="Kullanıcı Adı" >
                 </div>
                 <div class="form-group">
-                    <div class="checkbox i-checks"><label> <input type="checkbox"><i></i> Agree the terms and policy </label></div>
+                    <span asp-validation-for="@Model.Password" class="text-danger"></span>
+                    <input type="password" asp-for="@Model.Password" class="form-control" placeholder="Parola" required="">
                 </div>
-                <button type="submit" class="btn btn-primary block full-width m-b">Register</button>
+                <div class="form-group">
+                    <span asp-validation-for="@Model.ConfirmPassword" class="text-danger"></span>
+                    <input type="password" asp-for="@Model.ConfirmPassword" class="form-control" placeholder="Parola Tekrar" required="">
+                </div>
+                <div class="form-group">
+                    <span asp-validation-for="@Model.IsAcceptTheContract" class="text-danger"></span>
+                    <div class="checkbox i-checks">
+                        <label>
+                            <input type="checkbox" asp-for="IsAcceptTheContract">
+                            <i></i> Kullanım Şartlarını Okudum. Kabul Ediyorum.
+                        </label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary block full-width m-b">Kayıt Ol</button>
 
-                <p class="text-muted text-center"><small>Already have an account?</small></p>
-                <a class="btn btn-sm btn-white btn-block" href="login.html">Login</a>
+                <p class="text-muted text-center"><small><a class="btn btn-sm btn-white btn-block" href="/RegisterUser/Login/">Kayıtlı Bir Hesabım Var</a></small></p>
+
             </form>
-            <p class="m-t"> <small>Inspinia we app framework base on Bootstrap 3 &copy; 2014</small> </p>
+            <p class="m-t"> <small>Asp.Net Core 5.0 &copy; @DateTime.Now.Year</small> </p>
         </div>
     </div>
 

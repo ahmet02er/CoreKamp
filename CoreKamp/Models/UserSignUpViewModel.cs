@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CoreKamp.Models
 {
-    public class UserSingUpViewModel
+    public class UserSignUpViewModel
     {
         [Display(Name ="Ad Soyad")]
         [Required(ErrorMessage ="Lütfen Ad Soyad Giriniz...")]
@@ -27,5 +27,7 @@ namespace CoreKamp.Models
         [Display(Name = "Kullanıcı Adı")]
         [Required(ErrorMessage = "Lütfen Kullanıcı Adı Giriniz...")]
         public string UserName { get; set; }
+
+        public bool IsAcceptTheContract { get; set; }
     }
 }

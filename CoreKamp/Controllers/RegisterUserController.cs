@@ -28,18 +28,24 @@ namespace CoreKamp.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Index(UserSingUpViewModel userSingUp)
+        public async Task<IActionResult> Index(UserSignUpViewModel userSignUp)
         {
-            if(ModelState.IsValid)
+            if (!userSignUp.IsAcceptTheContract)
+            {
+                ModelState.AddModelError("IsAcceptTheContract",
+                    "Kayıt olabilmek için gizlilik sözleşmesini kabul etmeniz gerekmektedir.");
+                return View(userSignUp);
+            }
+            if (ModelState.IsValid)
             {
                 AppUser appUser = new AppUser()
                 {
-                    Email = userSingUp.Mail,
-                    UserName = userSingUp.UserName,
-                    NameSurname = userSingUp.NameSurname
+                    Email = userSignUp.Mail,
+                    UserName = userSignUp.UserName,
+                    NameSurname = userSignUp.NameSurname
                 };
 
-                var result = await _userManager.CreateAsync(appUser, userSingUp.Password);
+                var result = await _userManager.CreateAsync(appUser, userSignUp.Password);
                 if (result.Succeeded)
                 {
                     return RedirectToAction("Index", "Login");
@@ -52,7 +58,7 @@ namespace CoreKamp.Controllers
                     }
                 }
             }
-            return View(userSingUp);
+            return View(userSignUp);
         }
     }
 }

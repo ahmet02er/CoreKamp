@@ -1,8 +1,10 @@
-﻿using DataAccessLayer.Concrete.Context;
+﻿using CoreKamp.Models;
+using DataAccessLayer.Concrete.Context;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -12,39 +14,65 @@ using System.Threading.Tasks;
 
 namespace CoreKamp.Controllers
 {
+    [AllowAnonymous]
     public class LoginController : Controller
     {
-        [AllowAnonymous]
+        private readonly SignInManager<AppUser> _signInManager;
+
+        public LoginController(SignInManager<AppUser> signInManager)
+        {
+            _signInManager = signInManager;
+        }
+
         [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
 
-        [AllowAnonymous]
         [HttpPost]
-        public async Task<IActionResult> Index(Writer writer)
+
+        public async Task<IActionResult> Index(UserSignInViewModel userSignIn)
         {
-            MsSqlContext context = new MsSqlContext();
-            var dataValue = context.Writers.FirstOrDefault(x => x.WriterMail == writer.WriterMail && x.WriterPassword == writer.WriterPassword);
-            if(dataValue!=null)
+            if(ModelState.IsValid)
             {
-                var claims = new List<Claim>
+                var result = await _signInManager.PasswordSignInAsync(userSignIn.userName, userSignIn.userPassword, false, true);
+
+                if(result.Succeeded)
                 {
-                    new Claim(ClaimTypes.Name, writer.WriterMail)
-                };
-                var userIdentity = new ClaimsIdentity(claims, "Admin");
-                ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(userIdentity);
-                await HttpContext.SignInAsync(claimsPrincipal);
-                return RedirectToAction("Index", "DashBoard");
+                    return RedirectToAction("Index", "DashBoard");
+                }
+                else
+                {
+                    return View();
+                }
             }
-            else
-            {
-                return View();
-            }
-           
+            return View();
         }
-       
+
+        //[HttpPost]
+        //public async Task<IActionResult> Index(Writer writer)
+        //{
+        //    MsSqlContext context = new MsSqlContext();
+        //    var dataValue = context.Writers.FirstOrDefault(x => x.WriterMail == writer.WriterMail && x.WriterPassword == writer.WriterPassword);
+        //    if(dataValue!=null)
+        //    {
+        //        var claims = new List<Claim>
+        //        {
+        //            new Claim(ClaimTypes.Name, writer.WriterMail)
+        //        };
+        //        var userIdentity = new ClaimsIdentity(claims, "Admin");
+        //        ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(userIdentity);
+        //        await HttpContext.SignInAsync(claimsPrincipal);
+        //        return RedirectToAction("Index", "DashBoard");
+        //    }
+        //    else
+        //    {
+        //        return View();
+        //    }
+
+        //}
+
     }
 }
 

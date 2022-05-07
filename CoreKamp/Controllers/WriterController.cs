@@ -6,6 +6,7 @@ using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -18,10 +19,19 @@ namespace CoreKamp.Controllers
 
     public class WriterController : Controller
     {
+        private readonly UserManager<AppUser> _userManager;
         
         WriterManager writerManager = new WriterManager(new EfWriterRepository());
+        UserManager userManager = new UserManager(new EfUserRepository());
         WriterValidator validationRules = new WriterValidator();
+        AppUserValidator validationRulesUser = new AppUserValidator();
         MsSqlContext msSqlContext = new MsSqlContext();
+
+        public WriterController(UserManager<AppUser> userManager)
+        {
+            _userManager = userManager;
+        }
+
         [Authorize]
         public IActionResult Index()
         {
@@ -61,32 +71,29 @@ namespace CoreKamp.Controllers
         }
 
         [HttpGet]
-        public IActionResult WriterEditProfile()
+        public async Task <IActionResult> WriterEditProfile()
         {
-
-            var usermail = User.Identity.Name;
-            var writerId = msSqlContext.Writers.Where(x => x.WriterMail == usermail).Select(y => y.WriterId).FirstOrDefault();
-            var writerValue = writerManager.GenericGetById(writerId);
-            return View(writerValue);
+            var values = await _userManager.FindByNameAsync(User.Identity.Name);
+            UserUpdateViewModel userUpdateViewModel = new UserUpdateViewModel();
+            userUpdateViewModel.email = values.Email;
+            userUpdateViewModel.namesurname = values.NameSurname;
+            userUpdateViewModel.imageurl = values.ImageUrl;
+            userUpdateViewModel.username = values.UserName;
+            return View(userUpdateViewModel);
         }
- 
+
+
         [HttpPost]
-        public IActionResult WriterEditProfile(Writer writer)
+        public async Task<IActionResult> WriterEditProfile(UserUpdateViewModel userUpdateModel)
         {
-            ValidationResult validation = validationRules.Validate(writer);
-            if (validation.IsValid)
-            {
-                writerManager.GenericUpdate(writer);
-                return RedirectToAction("Index", "DashBoard");
-            }
-            else
-            {
-                foreach (var item in validation.Errors)
-                {
-                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
-                }
-            }
-            return View();
+            var values = await _userManager.FindByNameAsync(User.Identity.Name);
+            values.Email=userUpdateModel.email;
+            values.NameSurname=userUpdateModel.namesurname;
+            values.ImageUrl= userUpdateModel.imageurl;
+            values.PasswordHash = _userManager.PasswordHasher.HashPassword(values, userUpdateModel.password);
+            var result = await _userManager.UpdateAsync(values);
+
+            return RedirectToAction("Index", "DashBoard");
         }
 
         [AllowAnonymous]

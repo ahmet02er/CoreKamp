@@ -1,16 +1,17 @@
 ﻿@using EntityLayer.Concrete
 @model List<NewMessage>
 @{
-    ViewData["Title"] = "InBox";
+    ViewData["Title"] = "SendBox";
     Layout = "~/Views/Shared/_WriterLayout.cshtml";
 }
-<h1>Gelen Mesajlar</h1>
+
+<h1>Giden Mesajlar</h1>
 
 <table class="table table-hover">
     <thead>
         <tr>
             <th>#</th>
-            <th>Gönderen</th>
+            <th>Alıcı</th>
             <th>Konu</th>
             <th>Tarih</th>
             <th>Mesajı Görüntüle</th>
@@ -20,13 +21,13 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <th>@item.MessageId</th>
-            <td>@item.SenderUser.WriterName</td>
-            <td>@item.MessageSubject</td>
-            <td>@(((DateTime)item.MessageDate).ToString("dd MMMM yyyy"))</td>
-            <td><a href="/Message/MessageDetails/@item.MessageId" class="btn btn-success">Görüntüle</a></td>
-        </tr>
+            <tr>
+                <th>@item.MessageId</th>
+                <td>@item.ReceiverUser.WriterName</td>
+                <td>@item.MessageSubject</td>
+                <td>@(((DateTime)item.MessageDate).ToString("dd MMMM yyyy"))</td>
+                <td><a href="/Message/MessageDetails/@item.MessageId" class="btn btn-success">Görüntüle</a></td>
+            </tr>
         }
     </tbody>
 </table>

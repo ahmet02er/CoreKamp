@@ -12,7 +12,7 @@
 @Html.TextBoxFor(x => x.MessageSubject, new { @class = "form-control", disabled = "disabled" })
 <br />
 @Html.Label("Mesaj Detayı")
-@Html.TextAreaFor(x => x.MessageDetails,10,3, new { @class = "form-control", disabled = "disabled" })
+@Html.TextAreaFor(x => x.MessageDetails,10,3, new { @class = "form-control", disabled = "disabled", @id = "summernote"  })
 <br />
 
 <button class="btn btn-info">Geri Dön</button>

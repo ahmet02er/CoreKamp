@@ -1,8 +1,25 @@
 ﻿<div class="tech-btm">
     <p>Blog yazılarımızından ilk önce siz haberdar olun... </p>
-    <form action="/NewsLetter/SubscribeMail/" method="post">
-        <input type="email" name="Mail" placeholder="Email" required="">
-        <input type="submit" value="Abone Ol">
+    <form method="post">
+        <input id="txtmail" type="email" name="Mail" placeholder="Email" required="">
+        <input type="submit" id="btn" value="Abone Ol">
     </form>
 
 </div>
+
+<script type="text/javascript">
+    $("#btn").click(function () {
+        let values = {
+            Mail: $("#txtmail").val()
+        };
+        $.ajax({
+            type: "post",
+            url: "/NewsLetter/SubscribeMail/",
+            data: values,
+            success: function (func) {
+                let result = jQuery.parseJSON(func);
+            }
+        });
+    });
+</script>
+<script src="~/js/jquery-2.2.3.min.js"></script>

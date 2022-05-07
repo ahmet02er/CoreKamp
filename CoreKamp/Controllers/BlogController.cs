@@ -20,12 +20,15 @@ namespace CoreKamp.Controllers
         CategoryManager categoryManager = new CategoryManager(new EfCategoryRepository());
         BlogValidator validationRules = new BlogValidator();
         MsSqlContext msSqlContext = new MsSqlContext();
+
+        [AllowAnonymous]
         public IActionResult Index()
         {
             var blogValue = blogManager.GetListWithCategory();
             return View(blogValue);
         }
 
+        [AllowAnonymous]
         public IActionResult BlogReadAll(int id)
         {
             ViewBag.id = id;
@@ -35,8 +38,9 @@ namespace CoreKamp.Controllers
 
         public IActionResult BlogListByWriter()
         {
-            var usermail = User.Identity.Name;
-            var writerId = msSqlContext.Writers.Where(x => x.WriterMail == usermail).Select(y => y.WriterId).FirstOrDefault();
+            var userName = User.Identity.Name;
+            var userMail = msSqlContext.Users.Where(x => x.UserName == userName).Select(y => y.Email).FirstOrDefault();
+            var writerId = msSqlContext.Writers.Where(x => x.WriterMail == userMail).Select(y => y.WriterId).FirstOrDefault();
             var writerValue = blogManager.GetListCategoryByWriter(writerId);
             return View(writerValue);
         }
@@ -57,8 +61,9 @@ namespace CoreKamp.Controllers
         [HttpPost]
         public IActionResult BlogAdd(Blog blog)
         {
-            var usermail = User.Identity.Name;
-            var writerId = msSqlContext.Writers.Where(x => x.WriterMail == usermail).Select(y => y.WriterId).FirstOrDefault();
+            var userName = User.Identity.Name;
+            var userMail = msSqlContext.Users.Where(x => x.UserName == userName).Select(y => y.Email).FirstOrDefault();
+            var writerId = msSqlContext.Writers.Where(x => x.WriterMail == userMail).Select(y => y.WriterId).FirstOrDefault();
 
             ValidationResult validationResult = validationRules.Validate(blog);
             if (validationResult.IsValid)
@@ -105,8 +110,10 @@ namespace CoreKamp.Controllers
         [HttpPost]
         public IActionResult UpdateBlog(Blog blog)
         {
-            var usermail = User.Identity.Name;
-            var writerId = msSqlContext.Writers.Where(x => x.WriterMail == usermail).Select(y => y.WriterId).FirstOrDefault();
+            var userName = User.Identity.Name;
+            var userMail = msSqlContext.Users.Where(x => x.UserName == userName).Select(y => y.Email).FirstOrDefault();
+            var writerId = msSqlContext.Writers.Where(x => x.WriterMail == userMail).Select(y => y.WriterId).FirstOrDefault();
+
             blog.WriterId = writerId;
             blog.BlogCreateDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             blog.BlogStatus = true;

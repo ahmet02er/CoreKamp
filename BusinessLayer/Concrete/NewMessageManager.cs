@@ -20,7 +20,7 @@ namespace BusinessLayer.Concrete
 
         public void GenericAdd(NewMessage parametre)
         {
-            throw new NotImplementedException();
+            _newMessageDal.Insert(parametre);
         }
 
         public void GenericDelete(NewMessage parametre)
@@ -45,7 +45,12 @@ namespace BusinessLayer.Concrete
 
         public List<NewMessage> GetInboxListByWriter(int id)
         {
-            return _newMessageDal.GetListWithMessageByWriter(id);
+            return _newMessageDal.GetInboxWithMessageByWriter(id);
+        }
+
+        public List<NewMessage> GetSendboxListByWriter(int id)
+        {
+            return _newMessageDal.GetSendboxWithMessageByWriter(id);
         }
     }
 }

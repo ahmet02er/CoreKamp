@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstract
 {
-    public interface INewMessageDal : IGenericDal<NewMessage>
+    public interface IUserDal:IGenericDal<AppUser>
     {
-        List<NewMessage> GetInboxWithMessageByWriter(int id);
-        List<NewMessage> GetSendboxWithMessageByWriter(int id);
+
     }
 }

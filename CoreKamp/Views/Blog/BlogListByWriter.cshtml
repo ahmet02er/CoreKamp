@@ -59,30 +59,25 @@
             {
                 color = "badge badge-info";
             }
-            <tr>
-                <th>@item.BlogId</th>
-                <td>@item.BlogTitle</td>
-                <td>@(((DateTime)item.BlogCreateDate).ToString("dd MMMM yyyy"))</td>
-                <td><span class="@color" >@item.Category.CategoryName</span></td>
-                <td>
-                    @if (@item.BlogStatus == true)
-                    {
-                        <span class="badge badge-success">Aktif</span>
-                    }
-                    else
-                    {
-                        <span class="badge badge-danger">Pasif</span>
-                    }
-                </td>
-                <td><a href="/Blog/DeleteBlog/@item.BlogId" class="btn btn-danger">Sil</a></td>
-                <td><a href="/Blog/UpdateBlog/@item.BlogId" class="btn btn-success">Güncelle</a></td>
-            </tr>
+        <tr>
+            <th>@item.BlogId</th>
+            <td>@item.BlogTitle</td>
+            <td>@(((DateTime)item.BlogCreateDate).ToString("dd MMMM yyyy"))</td>
+            <td><span class="@color">@item.Category.CategoryName</span></td>
+            <td>
+                @if (@item.BlogStatus == true)
+                {
+                    <span class="badge badge-success">Aktif</span>
+                }
+                else
+                {
+                    <span class="badge badge-danger">Pasif</span>
+                }
+            </td>
+            <td><a href="/Blog/UpdateBlog/@item.BlogId" class="btn btn-success">Güncelle</a></td>
+            <td><a href="/Blog/DeleteBlog/@item.BlogId" class="btn btn-danger Sil">Sil</a></td>
+        </tr>
         }
     </tbody>
 </table>
 <a href="/Blog/BlogAdd" class="btn btn-primary">Yeni Blog Ekle</a>
-<script>
-        $('#btn').click(function () {
-            swal("Silmek İstediğinizden eminmisiniz.");
-        });
-</script>

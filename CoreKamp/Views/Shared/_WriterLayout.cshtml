@@ -9,15 +9,18 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Purple Admin</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <title>Asp.Net Core 5.0</title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" rel="stylesheet" />
 
     <link href="~/writerPanel/assets/vendors/mdi/css/materialdesignicons.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="~/writerPanel/assets/vendors/css/vendor.bundle.base.css">
-    <link rel="stylesheet" href="~/writerPanel/assets/css/style.css">
-    <link rel="shortcut icon" href="~/writerPanel/assets/images/favicon.ico" />
+    <link href="~/writerPanel/assets/vendors/css/vendor.bundle.base.css" rel="stylesheet" />
+    <link href="~/writerPanel/assets/css/style.css" rel="stylesheet" />
+    <link href="~/writerPanel/assets/images/favicon.ico" rel="shortcut icon" />
+    <link href="~/writerPanel/assets/css/SweetAlert2.css" rel="stylesheet" />
     <link href="~/summernote/summernote.min.css" rel="stylesheet" />
     <link href="~/summernote/summernote-bs4.min.css" rel="stylesheet" />
+
+
 
 </head>
 <body>
@@ -42,25 +45,14 @@
                     </form>
                 </div>
                 <ul class="navbar-nav navbar-nav-right">
-                    <li class="nav-item nav-profile dropdown">
-                        <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+                    <li class="nav-item nav-profile">
+                        <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                             <div class="nav-profile-img">
                                 <img src="~/writerPanel/assets/images/ahmetlogo.png" alt="image">
                                 <span class="availability-status online"></span>
                             </div>
-                            <div class="nav-profile-text">
-                                <p class="mb-1 text-black">Ahmet ÖZER</p>
-                            </div>
+                            @await Component.InvokeAsync("WriterName")
                         </a>
-                        <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
-                            <a class="dropdown-item" href="#">
-                                <i class="mdi mdi-cached mr-2 text-success"></i> Activity Log
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">
-                                <i class="mdi mdi-logout mr-2 text-primary"></i> Signout
-                            </a>
-                        </div>
                     </li>
                     <li class="nav-item d-none d-lg-block full-screen-link">
                         <a class="nav-link">
@@ -82,13 +74,8 @@
                         @await Component.InvokeAsync("WriterNotification")
                     </li>
                     <li class="nav-item nav-logout d-none d-lg-block">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="/Login/LogOut/">
                             <i class="mdi mdi-power"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item nav-settings d-none d-lg-block">
-                        <a class="nav-link" href="#">
-                            <i class="mdi mdi-format-line-spacing"></i>
                         </a>
                     </li>
                 </ul>
@@ -117,7 +104,7 @@
     <script src="/writerPanel/assets/js/misc.js"></script>
     <script src="/writerPanel/assets/js/dashboard.js"></script>
     <script src="/writerPanel/assets/js/todolist.js"></script>
-
+    <script src="/writerPanel/assets/js/SweetAlert2.js"></script>
     <script src="/summernote/summernote.min.js"></script>
     <script src="/summernote/summernote-bs4.min.js"></script>
     <script src="/summernote/lang/summernote-tr-TR.min.js"></script>
@@ -128,6 +115,35 @@
                 height: 200,
                 lang: 'tr-TR' // default: 'en-US'
             });
+        });
+
+        $('.Sil').click(function (e) {
+            e.preventDefault();
+            var linkURL = $(this).attr("href");
+            Swal.fire({
+                title: 'UYARI!',
+                text: "Blog yazısını silmek istediğinize emin misiniz?",
+                icon: 'warning',
+                showCancelButton: true,
+                showCancelButton: true,
+                confirmButtonColor: '#5CBA6C',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Evet',
+                cancelButtonText: 'Hayır'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire(
+                        'Başarılı!',
+                        'Seçilen Blog Silindi .',
+                        'success'
+                    )
+                    window.location.href = linkURL;
+                }
+                else if (result.dismiss === Swal.DismissReason.cancel) {
+
+                }
+            })
+
         });
     </script>
 </body>

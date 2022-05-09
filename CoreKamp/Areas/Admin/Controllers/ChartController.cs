@@ -17,24 +17,23 @@ namespace CoreKamp.Areas.Admin.Controllers
 
         public IActionResult CategoryChart()
         {
-            List<CategoryClass> categoryList = new List<CategoryClass>();
-            categoryList.Add(new CategoryClass
-            {
-                categoryName="Yazılım",
-                categoryCount=14   
-            });
-            categoryList.Add(new CategoryClass
+            List<CategoryClass> list = new List<CategoryClass>();
+            list.Add(new CategoryClass
             {
                 categoryName = "Teknoloji",
-                categoryCount = 10
+                categoryCount = 14
             });
-            categoryList.Add(new CategoryClass
+            list.Add(new CategoryClass
             {
-                categoryName = "Spor",
+                categoryName = "Yazılım",
                 categoryCount = 5
             });
-
-            return Json(new { jsonList = categoryList });
+            list.Add(new CategoryClass
+            {
+                categoryName = "Spor",
+                categoryCount = 2
+            });
+            return Json(new { jsonlist = list });
         }
     }
 }

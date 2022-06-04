@@ -13,7 +13,7 @@
                         <li><a class="dropdown-item" href="contacts.html">Contacts</a></li>
                         <li><a class="dropdown-item" href="mailbox.html">Mailbox</a></li>
                         <li class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="login.html">Logout</a></li>
+                        <li><a class="dropdown-item" href="/Login/LogOut/">Çıkış</a></li>
                     </ul>
                 </div>
                 <div class="logo-element">
@@ -27,11 +27,11 @@
                 <a href="/Admin/Chart/Index/"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Grafikler</span>  </a>
             </li>
             <li>
-                <a href="mailbox.html"><i class="fa fa-envelope"></i> <span class="nav-label">Mesajlar </span><span class="label label-warning float-right">16/24</span></a>
+                <a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="fa fa-envelope"></i> <span class="nav-label">Mesajlar </span><span class="label label-warning float-right">16/24</span></a>
                 <ul class="nav nav-second-level collapse">
-                    <li><a href="#">Yeni Mesaj</a></li>
+                    <li><a href="/Admin/AdminMessage/ComposeMessage/">Yeni Mesaj</a></li>
                     <li><a href="/Admin/AdminMessage/Inbox/">Gelen Mesajlar</a></li>
-                    <li><a href="#">Gönderilen Mesajlar</a></li>
+                    <li><a href="/Admin/AdminMessage/SendBox/">Gönderilen Mesajlar</a></li>
                 </ul>
             </li>
             <li>
@@ -41,7 +41,7 @@
                 <a href="/Admin/Category/Index/"><i class="fa fa-group"></i> <span class="nav-label">Kategoriler</span>  </a>
             </li>
             <li>
-                <a href="metrics.html"><i class="fa fa-list-alt"></i> <span class="nav-label">Bloklar</span>  </a>
+                <a href="/Admin/AdminBlog/Index/"><i class="fa fa-list-alt"></i> <span class="nav-label">Bloklar</span>  </a>
             </li>
             <li>
                 <a href="metrics.html"><i class="fa fa-comment"></i> <span class="nav-label">Yorumlar</span>  </a>
@@ -53,7 +53,7 @@
                 <a href="metrics.html"><i class="fa fa-info"></i> <span class="nav-label">Ayarlar</span>  </a>
             </li>
             <li>
-                <a href="metrics.html"><i class="fa fa-diamond"></i> <span class="nav-label">Bildirimler</span>  </a>
+                <a href="/Admin/AdminComment/Index/"><i class="fa fa-diamond"></i> <span class="nav-label">Yorumlar</span>  </a>
             </li>
             <li>
                 <a href="metrics.html"><i class="fa fa-phone"></i> <span class="nav-label">İletişim</span>  </a>
@@ -68,7 +68,7 @@
                 <a href="/Admin/Blog/ExportDynamicExcelBlogList/"><i class="fa fa-file-pdf-o"></i> <span class="nav-label">Dinamik Rapor</span></a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-window-close"></i> <span class="nav-label">Çıkış</span></a>
+                <a href="/Login/LogOut/"><i class="fa fa-window-close"></i> <span class="nav-label">Çıkış</span></a>
             </li>
         </ul>
 

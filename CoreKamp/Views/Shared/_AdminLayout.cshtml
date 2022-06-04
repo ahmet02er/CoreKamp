@@ -17,6 +17,8 @@
     <link href="~/adminPanel/css/plugins/iCheck/custom.css" rel="stylesheet" />
     <link href="~/adminPanel/css/animate.css" rel="stylesheet" />
     <link href="~/adminPanel/css/style.css" rel="stylesheet" />
+    <link href="~/summernote/summernote.min.css" rel="stylesheet" />
+    <link href="~/summernote/summernote-bs4.min.css" rel="stylesheet" />
 
 </head>
 
@@ -32,13 +34,13 @@
                         <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
                         <form role="search" class="navbar-form-custom" action="search_results.html">
                             <div class="form-group">
-                                <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
+                                <input type="text" placeholder="Site İçi Arama" class="form-control" name="top-search" id="top-search">
                             </div>
                         </form>
                     </div>
                     <ul class="nav navbar-top-links navbar-right">
                         <li>
-                            <span class="m-r-sm text-muted welcome-message">Welcome to INSPINIA+ Admin Theme.</span>
+                            <span class="m-r-sm text-muted welcome-message">Admin Paneli</span>
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
@@ -138,8 +140,8 @@
 
 
                         <li>
-                            <a href="login.html">
-                                <i class="fa fa-sign-out"></i> Log out
+                            <a href="/Login/LogOut/">
+                                <i class="fa fa-sign-out"></i> Çıkış
                             </a>
                         </li>
                     </ul>
@@ -198,6 +200,10 @@
     <!-- Google Chart -->
     <script src="~/adminPanel/js/loader.js"></script>
 
+    <!-- Summernote -->
+    <script src="/summernote/summernote.min.js"></script>
+    <script src="/summernote/summernote-bs4.min.js"></script>
+    <script src="/summernote/lang/summernote-tr-TR.min.js"></script>
 
     <script>
         $(document).ready(function () {
@@ -205,7 +211,14 @@
                 checkboxClass: 'icheckbox_square-green',
                 radioClass: 'iradio_square-green',
             });
-        });</script>
+        });
+        $(document).ready(function () {
+            $('#summernote').summernote({
+                height: 200,
+                lang: 'tr-TR' // default: 'en-US'
+            });
+        });
+    </script>
 
     <!--
     <script>

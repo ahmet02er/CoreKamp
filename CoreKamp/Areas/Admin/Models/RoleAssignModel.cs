@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace CoreKamp.Areas.Admin.Models
 {
-    public class RoleUpdateModel
+    public class RoleAssignModel
     {
-        public int Id { get; set; }
+        public int RoleId { get; set; }
         public string Name { get; set; }
-        public string normalizedName { get; set; }
+        public bool Exists { get; set; }
     }
 }

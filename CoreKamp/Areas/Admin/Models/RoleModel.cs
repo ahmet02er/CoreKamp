@@ -10,5 +10,6 @@ namespace CoreKamp.Areas.Admin.Models
     {
         [Required(ErrorMessage ="Lütfen Rol Adı Giriniz..")]
         public string name { get; set; }
+        public string normalizeName { get; set; }
     }
 }

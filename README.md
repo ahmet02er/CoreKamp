@@ -5,11 +5,11 @@
 ## Asp.Net Core Kamp Projesi Canlı Web Sitesi http://ahmetozer.xyz
 
 ## Görevler
-- Görev 1 = Ders 20 - Projenin GitHuba yüklenmesi
-- Ödev 1 = Ders 32 - Yüklenen Blokta herhangi bir yorum yok ise "Bu Blogta henüz yorum yapılmadı. İlk yorumu siz yazın."
-- Ödev 2 = Ders 33 - Kayıt Olurken Parola Tekrar Alanı
-- Ödev 3 = Ders 34 - Yazar Kayıt Sayfasında ViewModel Göre DropDown Şehir Listesi
-- Ödev 4 = Ders 35 - Kayıt Ekranında Parolada En Az 1 Büyük Harf, En Az 1 Küçük Harf ve En Az 1 Sayı Olaması Gerekiyor.
+- ~~Görev 1 = Ders 20 - Projenin GitHuba yüklenmesi
+- ~~Ödev 1 = Ders 32 - Yüklenen Blokta herhangi bir yorum yok ise "Bu Blogta henüz yorum yapılmadı. İlk yorumu siz yazın."
+- ~~Ödev 2 = Ders 33 - Kayıt Olurken Parola Tekrar Alanı
+- ~~Ödev 3 = Ders 34 - Yazar Kayıt Sayfasında ViewModel Göre DropDown Şehir Listesi
+- ~~Ödev 4 = Ders 35 - Kayıt Ekranında Parolada En Az 1 Büyük Harf, En Az 1 Küçük Harf ve En Az 1 Sayı Olaması Gerekiyor.
 - ~~Ödev 5 = Ders 39 - Yorum ve Mail Bülteni Ekleme Sorununun Çözülmesi (Yapılamadı)~~
-- Görev 2 = Ders 40 - GitHub Reposunun Güncellenmesi
-- Görev 3 = Ders 68 - Dashboard "Purple" logosu yerine kendi logomuzun eklenmesi.
+- ~~Görev 2 = Ders 40 - GitHub Reposunun Güncellenmesi
+- ~~Görev 3 = Ders 68 - Dashboard "Purple" logosu yerine kendi logomuzun eklenmesi.

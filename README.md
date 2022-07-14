@@ -2,6 +2,11 @@
 ## Youtube Eğitim Linki : https://www.youtube.com/watch?v=HXKnDUb06iw&list=PLKnjBHu2xXNNkinaVhPqPZG0ubaLN63ci
 ## Eğitmen : Murat YÜCEDAĞ https://www.youtube.com/channel/UCbkbOlw8snP93RJ2BhH44Qw
 
+# Asp.Net Core Kamp Projesi Canlı Sitesi
+# http://ahmetozer.xyz
+## kullanıcı adı : CoreKamp
+## şifre : AspNet123*
+
 - Görev 1 = Ders 20 - Projenin GitHuba yüklenmesi
 - Ödev 1 = Ders 32 - Yüklenen Blokta herhangi bir yorum yok ise "Bu Blogta henüz yorum yapılmadı. İlk yorumu siz yazın."
 - Ödev 2 = Ders 33 - Kayıt Olurken Parola Tekrar Alanı

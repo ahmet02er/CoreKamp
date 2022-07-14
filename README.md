@@ -4,9 +4,10 @@
 
 ## Asp.Net Core Kamp Projesi Canlı Web Sitesi
 ## http://ahmetozer.xyz
-### ![#f03c15] kullanıcı adı : CoreKamp
+### kullanıcı adı : CoreKamp
 ### şifre : AspNet123*
 
+#### Görevler
 - Görev 1 = Ders 20 - Projenin GitHuba yüklenmesi
 - Ödev 1 = Ders 32 - Yüklenen Blokta herhangi bir yorum yok ise "Bu Blogta henüz yorum yapılmadı. İlk yorumu siz yazın."
 - Ödev 2 = Ders 33 - Kayıt Olurken Parola Tekrar Alanı

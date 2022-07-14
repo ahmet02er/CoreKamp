@@ -3,7 +3,7 @@
 ## Eğitmen : Murat YÜCEDAĞ https://www.youtube.com/channel/UCbkbOlw8snP93RJ2BhH44Qw
 
 ## Asp.Net Core Kamp Projesi Canlı Web Sitesi
-[Link] http://ahmetozer.xyz
+[http://ahmetozer.xyz] 
 ### kullanıcı adı : CoreKamp
 ### şifre : AspNet123*
 

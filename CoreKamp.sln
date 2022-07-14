@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreLayer", "CoreLayer\Core
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreKampApi", "CoreKampApi\CoreKampApi.csproj", "{E0257662-69E6-4615-8222-151B025621B7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreKampJwtApi", "CoreKampJwtApi\CoreKampJwtApi.csproj", "{DB79406C-1369-4412-B9BB-8C649BEA9744}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{E0257662-69E6-4615-8222-151B025621B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0257662-69E6-4615-8222-151B025621B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0257662-69E6-4615-8222-151B025621B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB79406C-1369-4412-B9BB-8C649BEA9744}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB79406C-1369-4412-B9BB-8C649BEA9744}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB79406C-1369-4412-B9BB-8C649BEA9744}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB79406C-1369-4412-B9BB-8C649BEA9744}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

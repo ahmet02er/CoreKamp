@@ -3,8 +3,6 @@
 ## Eğitmen : Murat YÜCEDAĞ https://www.youtube.com/channel/UCbkbOlw8snP93RJ2BhH44Qw
 
 ## Asp.Net Core Kamp Projesi Canlı Web Sitesi http://ahmetozer.xyz
-### Kullanıcı Adı : CoreKamp
-### Şifre         : AspNet123*
 
 ## Görevler
 - Görev 1 = Ders 20 - Projenin GitHuba yüklenmesi

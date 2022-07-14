@@ -4,7 +4,7 @@
 
 ## Asp.Net Core Kamp Projesi Canlı Web Sitesi
 ## http://ahmetozer.xyz
-![#f03c15] ### kullanıcı adı : CoreKamp
+### ![#f03c15] kullanıcı adı : CoreKamp
 ### şifre : AspNet123*
 
 - Görev 1 = Ders 20 - Projenin GitHuba yüklenmesi

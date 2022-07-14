@@ -2,9 +2,9 @@
 ## Youtube Eğitim Linki : https://www.youtube.com/watch?v=HXKnDUb06iw&list=PLKnjBHu2xXNNkinaVhPqPZG0ubaLN63ci
 ## Eğitmen : Murat YÜCEDAĞ https://www.youtube.com/channel/UCbkbOlw8snP93RJ2BhH44Qw
 
-## ![#f03c15] Asp.Net Core Kamp Projesi Canlı Web Sitesi
+## Asp.Net Core Kamp Projesi Canlı Web Sitesi
 ## http://ahmetozer.xyz
-### kullanıcı adı : CoreKamp
+![#f03c15] ### kullanıcı adı : CoreKamp
 ### şifre : AspNet123*
 
 - Görev 1 = Ders 20 - Projenin GitHuba yüklenmesi
